@@ -10,14 +10,14 @@ interface OptionListProps {
 const correctAnswerBadge = (
   <div className="bg-brand-paris-green text-white px-3 py-2 flex items-center justify-center space-x-2 rounded-[53px]">
     <Tick />
-    <p className="text-xs font-jakarta font-medium">Correct answer</p>
+    <p className="text-xs font-jakarta font-medium">Poprawna odpowiedź</p>
   </div>
 );
 
 const wrongAnswerBadge = (
   <div className="bg-brand-bittersweet text-white px-3 py-2 flex items-center justify-center space-x-2 rounded-[53px]">
     <Close />
-    <p className="text-xs font-jakarta font-medium">Your answer</p>
+    <p className="text-xs font-jakarta font-medium">Twoja odpowiedź</p>
   </div>
 );
 

@@ -42,10 +42,13 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
       transition={{ duration: 0.5 }}
     >
       <div className="flex flex-col text-black font-bold text-[32px] text-center w-full">
-        <h1 className="font-bold text-base text-white">QuizApp</h1>
+
 
         {/* Result Box */}
         <div className="mt-6 flex-1 bg-white border border-brand-light-gray rounded-2xl flex flex-col items-center py-7 px-2 ">
+                {/* Dodany nagłówek z przyciskiem Zaloguj się */}
+
+          
           <Lottie
             animationData={confettiAnimation}
             loop={false}
@@ -53,16 +56,16 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
             style={{ width: "170px", height: "170px" }}
           />
           <h3 className="text-brand-midnight text-[32px] font-medium leading-9 mt-4">
-            Congratulations!
+            Gratulacje!
           </h3>
           <p className="text-brand-midnight text-xl font-normal mt-2">
-            You scored
+            Twój wynik
           </p>
           <span className="text-brand-midnight font-medium text-[40px]">
             {`${correctAnswers}/${totalQuestions}`}
           </span>
           <p className="text-brand-midnight text-sm font-normal mt-1">
-            correct answers
+            poprawne odpowiedzi
           </p>
 
           {/* Charts */}
@@ -74,12 +77,12 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
               type={"time"}
               data={[
                 {
-                  label: "Time Used",
+                  label: "Wykorzystany czas",
                   value: secondsUsed,
                   color: "#374CB7",
                 },
                 {
-                  label: "Time Left",
+                  label: "Pozostały czas",
                   value: 60 * totalQuestions - secondsUsed,
                   color: "#F0F0F0",
                 },
@@ -93,12 +96,12 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
               used={correctAnswers}
               data={[
                 {
-                  label: "Correct",
+                  label: "Poprawne",
                   value: correctAnswers,
                   color: "#56C490",
                 },
                 {
-                  label: "Wrong",
+                  label: "Złe",
                   value: wrongAnswers,
                   color: "#FF6A66",
                 },
@@ -116,7 +119,7 @@ export const Result = ({ results, totalQuestions }: ResultProps) => {
             className="mt-6"
             onClick={handleRetry}
           >
-            Try Again
+            Spróbuj ponownie
           </Button>
         </div>
       </div>

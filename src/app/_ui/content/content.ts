@@ -1,34 +1,34 @@
-export const importantToKnow = [
-  "In each quiz, you  are required to answer 5 questions.",
-  "You will have 1 minutes for each question. If you fail to complete a question in given time, your answer will be considered incorrect.",
+export const importantToKnow = [ 
+  "W każdym quizie musisz odpowiedziedź na 5 pytań.",
+  "Masz 1 minute na każde pytanie. Jeśli nie odpowiesz na pytanie w podanym czasie, twoja odpowiedź zostanie uznana za nieprawidłową.",
 ];
 
-export const quizQuestions = [
+export const quizQuestions = [ 
+  {
+    question: 
+      "Które z podlaskich miast jest stolicą województwa Podlaskiego?",
+    options: ["Suwałki", "Białystok", "Łomża", "Augustów"],
+    correctAnswer: "Białystok",
+  },
+  {
+    question: "Które z podlaskich miast słynie z zabytkowego parku pałacowego oraz festiwalu kultury prawosławnej?",
+    options: ["Białystok", "Bielsk Podlaski", "Hajnówka", "Sokółka"],
+    correctAnswer: "Hajnówka",
+  },
+  {
+    question: "Jaki charakterystyczny instrument muzyczny jest związany z kulturą podlaską?",
+    options: ["Akordeon", "Koziołek", "Skrzypce", "Bęben suwalski"],
+    correctAnswer: "Bęben suwalski",
+  },
+  {
+    question: "Jakie tradycyjne potrawy są charakterystyczne dla kuchni podlaskiej?",
+    options: ["Pierogi ruskie", "Kiszka ziemniaczana", "Babka ziemniaczana", "Wątróbka podlaska"],
+    correctAnswer: "Babka ziemniaczana",
+  },
   {
     question:
-      "What is the process of converting analog signals into digital data called?",
-    options: ["Encoding", "Decoding", "Encryption", "Modulation"],
-    correctAnswer: "Encoding",
-  },
-  {
-    question: "What is the smallest unit of digital information?",
-    options: ["Byte", "Bit", "Megabyte", "Gigabyte"],
-    correctAnswer: "Bit",
-  },
-  {
-    question: "Which programming language is used for web development?",
-    options: ["PHP", "Ruby", "Swift", "HTML"],
-    correctAnswer: "HTML",
-  },
-  {
-    question: "What is the standard file format for images on the web?",
-    options: ["PNG", "PDF", "TXT", "DOC"],
-    correctAnswer: "PNG",
-  },
-  {
-    question:
-      "Which technology is used to track the location of a mobile device?",
-    options: ["GPS", "NFC", "Wi-Fi", "Bluetooth"],
-    correctAnswer: "GPS",
+      "Która rzeka przepływa przez Białystok, największe miasto województwa podlaskiego?",
+    options: ["Narew", "Biebrza", "Bug", "Supraśl"],
+    correctAnswer: "Bug",
   },
 ];

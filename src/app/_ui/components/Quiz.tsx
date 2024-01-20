@@ -13,7 +13,7 @@ import {
   playQuizEnd,
 } from "../utils/playSound";
 
-const TIME_LIMIT = 60; // 1 minute per question
+const TIME_LIMIT = 60; // 1 minuta na pytanie - czas w sekundach
 
 export const Quiz = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -57,10 +57,10 @@ export const Quiz = () => {
     if (quizFinished) return;
 
     if (timePassed > TIME_LIMIT) {
-      // The time limit has been reached for this question
-      // So the answerr will be considered wrong
+      // Limit czasu zostal wyczerpany=
+      // odpowiedz nieprawidlowa - nieodpowiedzane
 
-      // Update results
+      // Update
       if (selectedAnswerIndex === -1) {
         setResults((prev) => ({
           ...prev,
@@ -70,17 +70,16 @@ export const Quiz = () => {
       }
 
       handleNextQuestion();
-      // Restart timer
+      // Restart
       setTimePassed(0);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timePassed]);
 
   const handleNextQuestion = () => {
-    // Reset selected answer
+    // Reset wybranej odpowiedzi
     setSelectedAnswerIndex(-1);
 
-    // Check if quiz finished
+    // Sprawdz czy quiz jest skonczony
     if (activeQuestion + 1 >= quizQuestions.length) {
       console.log("Quiz finished!");
       playQuizEnd();
@@ -88,27 +87,27 @@ export const Quiz = () => {
       return;
     }
 
-    // Set next question
+    // Ustaw nastepne pytanie
     setActiveQuestion((prev) => prev + 1);
 
-    // Reset timer
+    // Reset timera
     setupTimer();
     setTimePassed(0);
   };
 
   const handleSelectAnswer = (answerIndex: number) => {
-    //  Stop timer
+    //  Stop timera
     clearInterval(timerRef.current!);
     setSelectedAnswerIndex(answerIndex);
 
-    // Check if answer is correct
+    // sprawdz czy odpowiedz jest poprawna
     const correctAnswer = quizQuestions[activeQuestion].correctAnswer;
     const selectedAnswer = quizQuestions[activeQuestion].options[answerIndex];
 
     if (correctAnswer === selectedAnswer) {
       console.log("Correct answer!");
       playCorrectAnswer();
-      // Update results
+
       setResults((prev) => ({
         ...prev,
         secondsUsed: prev.secondsUsed + timePassed,
@@ -119,7 +118,7 @@ export const Quiz = () => {
     } else {
       console.log("Wrong answer!");
       playWrongAnswer();
-      // Update results
+
       setResults((prev) => ({
         ...prev,
         secondsUsed: prev.secondsUsed + timePassed,
@@ -156,12 +155,17 @@ export const Quiz = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="flex flex-col text-black font-bold text-[32px] text-center w-full">
-        <h1 className="font-bold text-base text-brand-cerulean-blue">
-          QuizApp
-        </h1>
+      {/* Dodany nagłówek z przyciskiem Zaloguj się */}
+      <header className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold text-brand-cerulean-blue">Quiz o Podlasiu</h1>
+        <div className="flex space-x-6">
+          <Button size="small">Zarejestruj się</Button>
+          <Button size="small">Zaloguj się</Button>
+        </div>
+      </header>
         <div className="mt-6 rounded-2xl border border-brand-light-gray px-7 py-4 w-full mb-1">
           <h3 className="text-black font-medium text-sm">
-            Question {activeQuestion + 1} / {numberOfQuestions}
+            Pytanie {activeQuestion + 1} / {numberOfQuestions}
           </h3>
 
           <div
@@ -208,7 +212,7 @@ export const Quiz = () => {
             size="small"
             onClick={handleNextQuestion}
           >
-            Next
+            Następne
           </Button>
         </div>
       </div>
